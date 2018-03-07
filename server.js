@@ -1,7 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var cookie = require('cookie-session');
+var passport = require('passport');
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 var app = express();
 
@@ -14,6 +16,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+var key = require('./config/keys.js');
 
 // set up Handlebars
 var exphbs = require("express-handlebars");
@@ -21,15 +24,27 @@ app.engine("handlebars", exphbs({
   defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
+require('./services/passport');
+
+app.use(
+  cookie({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [key.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // import routes and give the server access to them
-var routes = require("./controllers/itemsController.js");
-var routes = require("./controllers/usersController.js");
-app.use(routes);
+// var routes = require("./controllers/itemsController.js");
+// var routes = require("./controllers/usersController.js");
+require("./controllers/authController.js")(app);
+// require('./services/passport');
+// app.use("/",routes);
 
 // sync sequelize models and start the server listening
-db.sequelize.sync().then(function() {
+//db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-});
+//});
