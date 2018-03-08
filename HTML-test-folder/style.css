@@ -1,16 +1,16 @@
-.heading{
+.heading {
 	text-align: center;
 	font-size: 90px;
 	background-color: #ccffcc;
 
 }
 
-.button-group{
+.button-group {
 	align-items: center;
 	
 }
 
-#button-get{
+#button-get {
 	background-color: green;
 	border: 2px solid black;
 	margin-left: 120px;
@@ -20,7 +20,7 @@
 
 }
 
-#button-give{
+#button-give {
 	background-color: green;
 	border: 2px solid black;
 	margin-left: 80px;
@@ -30,11 +30,24 @@
 	
 }
 
-.inputForm{
+#button-submit {
+	background-color: green;
+	border: 2px solid black;
+	width: 150px;
+	height: 50px;
+	color: white;	
+}
+
+.inputForm {
 	margin-left: -20px;
 }
 
-body{
+body {
 	background-color: #ffffcc;
+	background-image: url(../images/bodybackground.jpg);
+}
+
+#background {
+	background-image: url(../images/bodybackground.jpg);
 }
 
