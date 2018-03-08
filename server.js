@@ -35,16 +35,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// import routes and give the server access to them
-// var routes = require("./controllers/itemsController.js");
-// var routes = require("./controllers/usersController.js");
+require("./controllers/itemsController.js")(app);
+require("./controllers/usersController.js")(app);
 require("./controllers/authController.js")(app);
-// require('./services/passport');
-// app.use("/",routes);
 
 // sync sequelize models and start the server listening
-//db.sequelize.sync().then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-//});
+});
