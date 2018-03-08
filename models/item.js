@@ -1,4 +1,4 @@
-// create an item mode that has a category, description, photo, and foreign key of the user who created it
+// create an item mode that has a category, description, photo (path to database link), and foreign key of the user who created it
 
 module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
@@ -10,20 +10,24 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false
       },
-      photo {
-        type: DataTypes.STRING,
-        allowNull: false
+      photo_url {
+        type: DataTypes.STRING
       },
-      user_name_owner {
+      user_email {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
       }
   });
+  
+  Item.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Item.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Item;
 };
-
-Item
-Category (furniture clothes, electronics, appliances)
-Description
-Photo
-User Id and contact info of person who posted it
