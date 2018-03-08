@@ -1,0 +1,35 @@
+.heading{
+	text-align: center;
+	font-size: 90px;
+	background-color: #ccffcc;
+
+}
+
+.button-group{
+	align-items: center;
+	
+}
+
+#button-get{
+	background-color: green;
+	border: 2px solid black;
+	margin-left: 150px;
+	width: 300px;
+	height: 100px;
+	color: white;
+
+}
+
+#button-give{
+	background-color: green;
+	border: 2px solid black;
+	margin-left: 150px;
+	width: 300px;
+	height: 100px;
+	
+}
+
+body{
+	background-color: #ffffcc;
+}
+
