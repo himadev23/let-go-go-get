@@ -10,10 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    photo_url {
+    photo_url: {
       type: DataTypes.STRING
     },
-    user_email {
+    user_email: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true
