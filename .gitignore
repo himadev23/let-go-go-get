@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# system files
+.DS_Store
+thumbs.db
