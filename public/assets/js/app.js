@@ -24,7 +24,7 @@ $(function() {
     // PreventDefault on a submit event.
     event.preventDefault();
     var newItem = {
-      user_email: $("#user-email").val().trim(),
+      item_name: $("#item-name").val().trim(),
       category: $("#item-category").val().trim(),
       description: $("#item-description").val().trim(),
       photo_url: $("#item-photo").val().trim()
