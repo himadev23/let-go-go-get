@@ -39,10 +39,10 @@ passport.use(
        }
       done(null, profile)*/
       //console.log('profile id', profile);
-      const task =  db.User.create({social_id:profile.id},{Name:profile.displayName}).then(function(task){
-        //console.log('taaaaskkkk',task);
-      });
-      
+      // const task =  db.User.create({social_id:profile.id},{Name:profile.displayName}).then(function(task){
+      //   //console.log('taaaaskkkk',task);
+      // });
+      done(null, profile);
     }
   )
 );
