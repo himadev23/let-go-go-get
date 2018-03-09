@@ -13,10 +13,11 @@ module.exports = function(sequelize, DataTypes) {
     photo_url: {
       type: DataTypes.STRING
     },
-    user_email: {
+    social_id: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true
+      
     }
   });
   

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "hima",
-    "database": "database_development",
+    "database": "letgo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
