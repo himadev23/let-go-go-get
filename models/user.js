@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
      // distinct:true
 
     },
-    name: {
+    Name: {
       type: DataTypes.STRING
     }
     
