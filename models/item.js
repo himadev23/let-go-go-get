@@ -2,6 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     category: {
       type: DataTypes.STRING,
       allowNull: false
@@ -16,8 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     social_id: {
       type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true
-      
+      foreignKey: true
     }
   });
   
