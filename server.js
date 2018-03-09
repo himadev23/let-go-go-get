@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+
+require('dotenv').config();
 var key = require('./config/keys.js');
 
 // set up Handlebars

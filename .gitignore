@@ -57,9 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-# auth keys
-keys.js
-
 # system files
 .DS_Store
 thumbs.db
