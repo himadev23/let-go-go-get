@@ -4,12 +4,11 @@ module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         isEmail: true
       }
     },
-    contact_info: {
+    phone_number: {
       type: DataTypes.STRING
     },
     social_id:{
@@ -19,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
      // distinct:true
 
     },
-    Name: {
+    name: {
       type: DataTypes.STRING
     }
     
