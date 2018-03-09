@@ -9,6 +9,10 @@ module.exports = function(app) {
       console.log(dbItem);
     });
   });
+  
+//   app.get("/", function(req, res) {
+//   res.sendFile(path.join(__dirname, "../public/blog.html"));
+// });
 
   // get one item using its ID
   app.get("/api/items/:id", function(req, res) {

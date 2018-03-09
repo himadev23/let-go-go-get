@@ -2,13 +2,13 @@ const passport = require("../services/passport.js");
 
 module.exports = app => {
   app.get(
-    '/',
+    '/login',
     passport.authenticate('google', {
       scope: ['profile', 'email']
     })
   );
 
-  app.get('/auth/google/callback2', passport.authenticate('google'), function(
+  app.get('/auth/google/callback', passport.authenticate('google'), function(
     req,
     res
   ) {
