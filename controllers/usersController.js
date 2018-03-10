@@ -1,14 +1,12 @@
 var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
   
-  app.get("/api/items", function(req, res) {
-    // findAll returns all entries for a table when used with no options
+  // find all items that a user has posted
+  app.get("/users/:id/items", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
-      // We have access to the todos as an argument inside of the callback function
       res.json(dbUser);
-    });
-    
-  })
-  
+    });  
+  })  
 };

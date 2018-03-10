@@ -1,21 +1,12 @@
 var db = require("../models");
-var path = require("path")
+
+// TODO: Support updating item details?
+
+// TODO: add a user profile -- get /user/id html to show form for user profile and api for user/id with adding contact info (phone_number) and location? 
+
 module.exports = function(app) {
   
-  // find all items
-  app.get("/api/items", function(req, res) {
-    db.Item.findAll({}).then(function(dbItem) {
-      res.json(dbItem);
-      console.log(dbItem);
-    });
-  });
-  
-  app.get("/items/new", function(req, res) {
-    console.log("hello")
-  res.sendFile(path.join(__dirname, "../public/letGo.html"));
-});
-
-  // get one item using its ID
+  // get one item's details
   app.get("/api/items/:id", function(req, res) {
     db.Item.findOne({
       where: {
@@ -26,16 +17,24 @@ module.exports = function(app) {
     });
   });
   
-  // create a new item
+  // find all items
+  app.get("/api/items", function(req, res) {
+    db.Item.findAll({}).then(function(dbItem) {
+      res.json(dbItem);
+      console.log(dbItem);
+    });
+  });
+  
+  // api route to create a new item
+  // TODO: get parameter name for social_id
   app.post("/api/items", function(req, res) {
-
     console.log(req.body);
     db.Item.create(req.body).then(function(dbItem) {
       res.json(dbItem);
     });
   });
   
-  // Delete the item using its ID
+  // api route to delete the item using its ID
   app.delete("/api/items/:id", function(req, res) {
     db.Item.destroy({
       where: {
@@ -45,5 +44,5 @@ module.exports = function(app) {
       res.json(dbItem);
     });
   });
-
+  
 };
