@@ -24,7 +24,7 @@ $(function() {
     // PreventDefault on a submit event.
     event.preventDefault();
     var newItem = {
-      item_name: $("#item-name").val().trim(),
+      name: $("#item-name").val().trim(),
       category: $("#item-category").val().trim(),
       description: $("#item-description").val().trim(),
       photo_url: $("#item-photo").val().trim()
@@ -34,7 +34,7 @@ $(function() {
       type: "POST",
       data: newItem
     }).then(
-      function() {
+      function(res) {
         console.log("created new item");
         // Reload the page to get the updated list.
         location.reload();
