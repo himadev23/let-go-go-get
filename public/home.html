@@ -6,54 +6,43 @@
     <title>Let Go - Go Get</title>
     <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-    <!-- <script src="/assets/app.js"></script> -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdnGy42JqOvRkn8r1-xfedS-fHu_sGP3A&libraries=places"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/styleHome.css" type="text/css" />
-    <script src="/assets/js/appHome.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="/assets/js/app.js"></script>
 </head>
 
-<body>
+<body id="background">
     <header>
         <div class="grid">
+            <a href="/items/new" class="give-button" role="button"><span>Let Go</a>
             <button class="login-button"> <span>Log In</span></button>
-             <button class="give-button"> <span>Give Button</span></button>
-  <!--           <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button>
-            <button class="login-button"> <span>Log In</span></button> -->
         </div>
     </header>
-    <main class = 'grid'>
-		
-		
-		
-    		
-    
-		
-		
-		
-		
-    		
-		
+    <main class='grid' id="main-grid">
     </main>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script>
-
-    // $('.grid').masonry({
-    //     itemSelector: '.',
-    //     // itemSelector: '.login-button', 
-    //     columnWidth: 20
-    // });
-    </script>
+    <!-- Modal form. -->
+    <div id="results-modal" class="modal fade">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Item Details</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="item-description"></p>
+                    <p id="user-name"></p>
+                    <p id="user-email"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
