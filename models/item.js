@@ -18,18 +18,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     social_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      foreignKey: true
+      type: DataTypes.STRING
+      // allowNull: true
+      // foreignKey: true
     }
   });
   
-  Item.associate = function(models) {
-    Item.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Item.associate = function(models) {
+  //   Item.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   return Item;
 };

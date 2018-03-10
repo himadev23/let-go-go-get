@@ -1,0 +1,53 @@
+.heading {
+	text-align: center;
+	font-size: 90px;
+	background-color: #ccffcc;
+
+}
+
+.button-group {
+	align-items: center;
+	
+}
+
+#button-get {
+	background-color: green;
+	border: 2px solid black;
+	margin-left: 120px;
+	width: 300px;
+	height: 100px;
+	color: white;
+
+}
+
+#button-give {
+	background-color: green;
+	border: 2px solid black;
+	margin-left: 80px;
+	width: 300px;
+	height: 100px;
+	color: white;
+	
+}
+
+#button-submit {
+	background-color: green;
+	border: 2px solid black;
+	width: 150px;
+	height: 50px;
+	color: white;	
+}
+
+.inputForm {
+	margin-left: -20px;
+}
+
+body {
+	background-color: #ffffcc;
+	background-image: url(../images/bodybackground.jpg);
+}
+
+#background {
+	background-image: url(../images/bodybackground.jpg);
+}
+

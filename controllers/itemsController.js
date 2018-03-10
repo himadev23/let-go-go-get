@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var path = require("path")
 module.exports = function(app) {
   
   // find all items
@@ -10,9 +10,10 @@ module.exports = function(app) {
     });
   });
   
-//   app.get("/", function(req, res) {
-//   res.sendFile(path.join(__dirname, "../public/blog.html"));
-// });
+  app.get("/items/new", function(req, res) {
+    console.log("hello")
+  res.sendFile(path.join(__dirname, "../public/letGo.html"));
+});
 
   // get one item using its ID
   app.get("/api/items/:id", function(req, res) {
