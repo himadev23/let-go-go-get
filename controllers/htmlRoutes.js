@@ -19,6 +19,6 @@ module.exports = function(app) {
   
   // html route to display all items
   app.get("/items", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/main.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 };
