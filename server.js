@@ -37,6 +37,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+require("./controllers/htmlRoutes.js")(app);
 require("./controllers/itemsController.js")(app);
 require("./controllers/usersController.js")(app);
 require("./controllers/authController.js")(app);
