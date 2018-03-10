@@ -42,7 +42,7 @@ require("./controllers/usersController.js")(app);
 require("./controllers/authController.js")(app);
 
 // sync sequelize models and start the server listening
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync({force: false}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
