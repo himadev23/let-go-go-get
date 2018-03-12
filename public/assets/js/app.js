@@ -46,4 +46,13 @@ $(document).ready(function() {
       }
     );
   });
+  $('#login').on('click',function(){
+    console.log("Calling login api");
+    window.location='/login'
+    // $.ajax('/login',{
+    //   type:'GET'
+    // });
+    console.log('login clicked');
+  })
+
 });

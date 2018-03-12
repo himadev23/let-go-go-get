@@ -33,6 +33,8 @@ app.use(
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [key.cookieKey]
   })
+  //console.log('XXXXXXX:' + key.cookieKey );
+  
 );
 app.use(passport.initialize());
 app.use(passport.session());

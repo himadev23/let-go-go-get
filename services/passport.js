@@ -11,10 +11,9 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('hhjhjhj'+ id);
   done(null, id);
   db.User.findById(id).then(user => {
-    console.log('user', user);
+    console.log('user found:', user);
     
   });
 });
@@ -25,9 +24,10 @@ passport.use(
       clientID: key.googleClientID,
       clientSecret: key.googleClientSecretKey,
       callbackURL: '/auth/google/callback',
+      passReqToCallback   : true
       
     },
-     (accessToken, refreshToken, profile, done) => {
+     (request, accessToken, refreshToken, profile, done) => {
        /*const existingUser = await User.findOne({ social_id: profile.id });
        console.log('existingUser',existingUser);
        if (existingUser) {
@@ -36,15 +36,20 @@ passport.use(
        } else {
        await new User({ social_id: profile.id }).save();
        done(null, user);
-       }
-      done(null, profile)*/
-      //console.log('profile id', profile);
-      // const task =  db.User.create({social_id:profile.id},{Name:profile.displayName}).then(function(task){
-      //   //console.log('taaaaskkkk',task);
-      // });
+       }*/
+      
+       //db.User.create({social_id:profile.id},{Name:profile.displayName});
+    
       done(null, profile);
     }
   )
 );
+/*var loggedIn=function(req,res,next) {
+    if (req.user.authenticated) {
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+}*/
 
-module.exports = passport
+module.exports = passport;
