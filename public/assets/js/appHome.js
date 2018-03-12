@@ -9,7 +9,7 @@ $(document).ready(function() {
       
       // loop through the response and display the first 10 items returned (or the total number of responses if fewer are returned)
       
-      for (var i = 0; (i < res.length) && (i < 10); i++) {
+      for (var i = res.length-1; (i <= res.length-1) && (i > res.length-11); i--) {
         var itemTag = $("<a>");
         itemTag.addClass("stuff");
         //itemTag.attr("href", "#item-modal");
