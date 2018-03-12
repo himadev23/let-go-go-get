@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "0673Cord",
+    "password": "password",
     "database": "letgogoget_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
