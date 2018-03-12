@@ -20,6 +20,7 @@ module.exports = app => {
     res.sendFile(path.join(__dirname, "../public/letGo.html"));
         console.log('request user check callback',req.user);
 
+
   });
 
   app.get('/api/currentUser', function(req, res) {
@@ -30,7 +31,8 @@ module.exports = app => {
 
   app.get('/auth/logout', function(req, res) {
     req.logout();
-    res.send(req.user);
+    console.log("logging out", req.user)
+    res.redirect("/");
   });
 };
 

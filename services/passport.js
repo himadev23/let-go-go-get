@@ -7,13 +7,13 @@ var db = require("../models");
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
-  console.log('userId', user.id);
+  // console.log('userId', user.id);
 });
 
 passport.deserializeUser((id, done) => {
   done(null, id);
   db.User.findById(id).then(user => {
-    console.log('user found:', user);
+    // console.log('user found:', user);
     
   });
 });

@@ -49,10 +49,24 @@ $(document).ready(function() {
   $('#login').on('click',function(){
     console.log("Calling login api");
     window.location='/login'
-    // $.ajax('/login',{
-    //   type:'GET'
-    // });
+     // $.ajax('/login',{
+     //  type:'GET',
+     //  headers: new Headers({
+     //    "Access-Control-Allow-Origin":  "http://127.0.0.1:8000",
+     //    "Access-Control-Allow-Methods": "GET",
+     //    "Access-Control-Allow-Headers": "Content-Type, Authorization"
+     //  })        
+     // });
     console.log('login clicked');
-  })
+  });
+
+  $('#logout').on('click',function(){
+    // window.location='/auth/logout';
+
+    $.ajax('/auth/logout',{
+      type:"GET"
+    }).then(fun)
+
+  });
 
 });
