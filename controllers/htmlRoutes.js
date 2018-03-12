@@ -18,7 +18,7 @@ module.exports = function(app) {
   });
 
   // display page to add a new item (show a form)
-  app.get("/items/new", function(req, res) {
+  app.get("/items/new", loggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/letGo.html"));
   });
 
