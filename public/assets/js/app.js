@@ -65,7 +65,7 @@ $(document).ready(function() {
 
     $.ajax('/auth/logout',{
       type:"GET"
-    }).then(fun)
+    })
 
   });
 
