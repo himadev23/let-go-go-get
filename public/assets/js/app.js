@@ -42,7 +42,7 @@ $(document).ready(function() {
       function(res) {
         console.log("created new item");
         // Reload the page to get the updated list.
-        location.reload();
+        window.location.replace('/');
       }
     );
   });
