@@ -2,52 +2,53 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Let Go - Go Get</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+  <meta charset="UTF-8">
+  <title>Let Go - Go Get</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
 
-
-    <script src="/assets/js/appHome.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="/assets/js/appHome.js"></script>
 </head>
 
 <body id="background">
-    <header>
-        <div class="grid">
-            <a href="/items/new" class="give-button" role="button"><span>Let Go</a>
-            <button class="login-button"> <span>Log In</span></button>
-        </div>
-    </header>
-    <main class='grid' id="main-grid">
-      
-    </main>
+  <header>
+    <div class="grid">
+      <a href="/items/new" class="give-button" role="button"><span>Let Go</a>
+      <button class="login-button"> <span>Log In</span></button>
+    </div>
+  </header>
 
-    <div id="item-modal" class="modal fade" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">/h4>
+  <!-- items are added dynamically into this element -->
+  <main class='grid' id="main-grid">
+
+  </main>
+
+  <!-- modal content is added dynamically when an item is clicked -->
+  <div id="item-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">/h4>
           </div>
           <div class="modal-body">
             <p id="item-category"></p>
             <p id="item-description"><p>
+              <!-- img needs to be img-responsive to make it resize to fit within the modal window -->
               <img id="item-image" class="img-responsive">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div>
+      </div>
+    </div>
+    
 </body>
-
-
 
 </html>
