@@ -3,33 +3,23 @@
 module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
     name: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     category: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     photo_url: {
-      type: DataTypes.STRING(1000)
-    },
-    social_id: {
-      type: DataTypes.STRING
-      // allowNull: false,
-      // foreignKey: true
+      type: DataTypes.TEXT
     }
   });
-  
-  // Item.associate = function(models) {
-  //   Item.belongsTo(models.User, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+
+  Item.associate = function(models) {
+    Item.belongsTo(models.User, {
+      foreignKey: "social_id"
+    });
+  };
   return Item;
 };

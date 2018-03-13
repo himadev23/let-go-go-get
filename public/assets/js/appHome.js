@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+var user = null
   // build the initial page from the total number of items in the database (or the first 10, if there are more)
   // create the page using a masonry.js templating style
   $.ajax("api/items", {
@@ -7,25 +7,28 @@ $(document).ready(function() {
   }).then(
     function(res) {
       
+      user = res.user
+      console.log(user)
       // loop through the response and display the first 10 items returned (or the total number of responses if fewer are returned)
       
-      for (var i = res.length-1; (i <= res.length-1) && (i > res.length-11); i--) {
+      for (var i = res.items.length-1; (i <= res.items.length-1) && (i > res.items.length-11); i--) {
         var itemTag = $("<a>");
         itemTag.addClass("stuff");
         //itemTag.attr("href", "#item-modal");
-        itemTag.attr("id", res[i].id);
-        itemTag.attr("title", res[i].name);
+        itemTag.attr("id", res.items[i].id);
+        itemTag.attr("title", res.items[i].name);
         var article = $("<article>");
         var figure = $("<figure>");
         var figureCaption = $("<figcaption>");
-        figureCaption.text(res[i].name)
+        figureCaption.text(res.items[i].name)
         var photo = $("<img>");
-        photo.attr("src", res[i].photo_url);
+        photo.attr("src", res.items[i].photo_url);
         figure.append(figureCaption);
         figure.append(photo);
         article.append(figure);
         itemTag.append(article);
         $("#main-grid").append(itemTag);
+        
       }
     });
 
@@ -38,10 +41,15 @@ $(document).ready(function() {
     }).done(
       function(res) {
         $("#item-modal").modal("toggle");
-        $(".modal-header").text(res.name);
+        $(".modal-header").text(res.name.email);
         $("#item-description").text(res.description);
         $("#item-category").text(res.category);
         $("#item-image").attr("src", res.photo_url);
+        $(".contactUser").attr("href", `
+          mailto:${user}?Subject=Inquery%Item:${res.name}
+        `)
+        $("#userName").text(user.name);
+        $("#userEmail").text(user.email)
       }
     );
   });
