@@ -20,12 +20,6 @@ app.use(bodyParser.json());
 require('dotenv').config();
 var key = require('./config/keys.js');
 
-// set up Handlebars
-var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({
-  defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
 require('./services/passport');
 
 app.use(

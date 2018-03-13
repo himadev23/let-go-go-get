@@ -16,6 +16,9 @@ $(document).ready(function() {
       data: newItem
     }).then(
       function(res) {
+        
+        //TODO: validate and make into a bootstrap modal.
+        alert("Your item has been posted.");
         // Reload the page to get the updated list.
         window.location.replace('/');
       }
