@@ -46,7 +46,7 @@ var user = null
         $("#item-category").text("Category: " + res.category);
         $("#item-image").attr("src", res.photo_url);
         $(".contactUser").attr("href", `
-          mailto:${user}?Subject=Inquery%Item:${res.name}
+          mailto:${user}?Subject=Inquiry%Item:${res.name}
         `)
         $("#userName").text(user.name);
         $("#userEmail").text(user.email)
