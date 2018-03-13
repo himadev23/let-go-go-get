@@ -32,9 +32,6 @@ passport.use(
         Name: profile.displayName, 
         email: profile.emails[0].value
       });
-      
-      // Create a row in the item table with the Google profile ID as a foreign key
-      db.Item.create({social_id:profile.id});
 
       done(null, profile);
     }
