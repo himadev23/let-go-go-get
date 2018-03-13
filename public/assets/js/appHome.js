@@ -20,7 +20,7 @@ var user = null
         var article = $("<article>");
         var figure = $("<figure>");
         var figureCaption = $("<figcaption>");
-        figureCaption.text(res.items[i].name)
+        figureCaption.text(res.items[i].name);
         var photo = $("<img>");
         photo.attr("src", res.items[i].photo_url);
         figure.append(figureCaption);
@@ -41,9 +41,9 @@ var user = null
     }).done(
       function(res) {
         $("#item-modal").modal("toggle");
-        $(".modal-header").text(res.name.email);
-        $("#item-description").text(res.description);
-        $("#item-category").text(res.category);
+        $(".modal-header").text(res.name);
+        $("#item-description").text("Description: " + res.description);
+        $("#item-category").text("Category: " + res.category);
         $("#item-image").attr("src", res.photo_url);
         $(".contactUser").attr("href", `
           mailto:${user}?Subject=Inquery%Item:${res.name}
