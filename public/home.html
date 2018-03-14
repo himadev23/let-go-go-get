@@ -17,24 +17,27 @@
 
 <body id="background">
   <div class="container">
+    <div id="flashMessage">
+      You have been logged out!
+    </div>
     <header>
-        <div class="grid">
-            <div class="heading"> 
-              <p class="page-title">Let Go - Go Get</p>
-            </div>
-            <a href="/items/new" class="buttons" role="button"><span>Let Go</span></a>
-            <button class="login-button buttons" id='login'><span>Log In</span></button>
-            <button class="login-button buttons" id='logout'> <span>Log Out</span></button>
-            <p class="app-instructions"><b>Let Go</b> of items that clutter your life.</p>
-            <p class="app-instructions"><b>Go Get</b> items that others no longer need.</p>
+      <div class="grid">
+        <div class="heading">
+          <p class="page-title">Let Go - Go Get</p>
         </div>
+        <a href="/items/new" class="buttons" role="button"><span>Let Go</span></a>
+        <button class="login-button buttons" id='login'><span>Log In</span></button>
+        <button class="login-button buttons" id='logout'> <span>Log Out</span></button>
+        <p class="app-instructions"><b>Let Go</b> of items that clutter your life.</p>
+        <p class="app-instructions"><b>Go Get</b> items that others no longer need.</p>
+      </div>
     </header>
 
-  <!-- items are added dynamically into this element -->
-  <main class='grid' id="main-grid">
+    <!-- items are added dynamically into this element -->
+    <main class='grid' id="main-grid">
 
-  </main>
-</div>
+    </main>
+  </div>
 
   <!-- modal content is added dynamically when an item is clicked -->
   <div id="item-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -42,29 +45,30 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"</h4>
-          </div>
-          <div class="modal-body">
-            <p id="item-category"></p>
-            <p id="item-description"><p>
+          <h4 class="modal-title" </h4>
+        </div>
+        <div class="modal-body">
+          <p id="item-category"></p>
+          <p id="item-description">
+            <p>
               <!-- img needs to be img-responsive to make it resize to fit within the modal window -->
               <img id="item-image" class="img-responsive">
               <div>
                 <p>Contact <span id="userName"></span> about this item.</p>
-              
+
                 <p>Contact Email: <span id="userEmail"></span></p>
                 <a class="contactUser" target="_top">
                   <button class="btn btn-primary buttons" id="contact-now">Contact Now</button>
                 </a>
               </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-    
+  </div>
+
 </body>
 
 </html>
