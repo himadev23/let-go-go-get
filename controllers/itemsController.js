@@ -2,73 +2,82 @@ require("passport");
 
 var db = require("../models");
 
-// TODO: Support updating item details?
-
-// TODO: add a user profile -- get /user/id html to show form for user profile and api for user/id with adding contact info (phone_number) and location? 
-
 module.exports = function(app) {
-  
+
   // get one item's details
-  app.get("/api/items/:id", function(req, res) {
-    db.Item.findOne({
+  app.get("/api/item/:id/:social", function(req, res) {
+    db.User.findOne({
       where: {
-        id: req.params.id
-      }
+        social_id: req.params.social
+      },
+      include: [{
+        model: db.Item,
+        where: {
+          id: req.params.id
+        }
+      }]
     }).then(function(dbItem) {
-      res.json(dbItem);
+      var itemObj = {
+        userName: dbItem.dataValues.Name,
+        userEmail: dbItem.dataValues.email,
+      }
+      dbItem.Items.forEach(function(item) {
+        itemObj["item"] = item.dataValues
+      })
+      res.json(itemObj);
     });
   });
-  
-  // find all items
+
+  // find all items (return the 10 most recent)
   app.get("/api/items", function(req, res) {
-    // db.Item.findAll({
-    //   where: {
-    //     UserSocialId: req.session.passport.user
-    //   },
-    //   include: [db.User]
-    // }).then(function(dbItem) {
-    //   // console.log("$$$$$$$",dbItem);
-    //   // console.log("~~~~~~",dbItem.User);
-    //   // console.log("test", test)
-    //   // var data = []
-    //   // for(var instance in dbItem){
-    //   //   data.push(dbItem[instance].dataValues)
-    //   // }
-    //   // console.log("$$$$", data)
-    // 
-    //     res.json(dbItem);
-    // });
-    
-    
-    
+    db.User.findAll({
+      include: [db.Item],
+      limit: 10,
+      order: [
+        [{
+          model: db.Item
+        }, 'updatedAt', 'DESC']
+      ]
+    }).then(function(data) {
+      // the data sent back to the html
+      var allItems = []
+      data.forEach(function(user) {
+        var items = user.dataValues.Items
+
+        if (items.length > 0) {
+          // loop through all the items and add them to 
+          // allItems items array
+          items.forEach(function(item) {
+            allItems.push(item.dataValues)
+          });
+        }
+      })
+      res.json(allItems);
+    });
+  });
+
+
+  /* find the current user's items. Note - this is not currently implemented on the user interface, but would allow a user to sign in and manage items they have posted
     db.User.findOne({
       where:{
         social_id: req.session.passport.user
       }, include:[db.Item]
     }).then(function(data){
-      // console.log("$$$", data.dataValues);
       var userData = {email:data.dataValues.email, name:data.dataValues.Name}
       var itemsData = []
       data.Items.forEach(function(item){
         itemsData.push(item.dataValues);
       })
-      // console.log("!!!!", itemsData)
       var userItems = {
         items:itemsData,
         user: userData
       }
-      console.log("%%%%", userItems)
       res.json(userItems)
-    })
-  });
-  
+    })*/
+
+
   // api route to create a new item
-  // TODO: get parameter name for social_id
   app.post("/api/items", function(req, res) {
-    console.log(req.body);
-    console.log("id ", req.session.passport.user)
-    console.log("passport ", req.session.passport)
-    console.log("$$$$$$$$$$$$$$$$$$$", req.isAuthenticated())
     db.Item.create({
       name: req.body.name,
       category: req.body.category,
@@ -79,8 +88,8 @@ module.exports = function(app) {
       res.json(dbItem);
     });
   });
-  
-  // api route to delete the item using its ID
+
+  // api route to delete the item using its ID. This is not currently implemented on the user interface.
   app.delete("/api/items/:id", function(req, res) {
     db.Item.destroy({
       where: {
@@ -90,5 +99,5 @@ module.exports = function(app) {
       res.json(dbItem);
     });
   });
-  
+
 };
