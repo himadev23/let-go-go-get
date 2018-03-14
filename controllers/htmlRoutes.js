@@ -26,21 +26,4 @@ module.exports = function(app) {
   app.get("/items", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
-
-  app.get('/login', function(req, res, next) {
-    passport.authenticate('google', function(err, user, info) {
-      if (err) {
-        return next(err);
-      }
-      if (!user) {
-        return res.redirect('/login');
-      }
-      req.logIn(user, function(err) {
-        if (err) {
-          return next(err);
-        }
-        return res.redirect('/users/' + user.username);
-      });
-    })(req, res, next);
-  });
 };
